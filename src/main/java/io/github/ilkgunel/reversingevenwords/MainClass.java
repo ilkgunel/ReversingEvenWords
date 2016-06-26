@@ -6,20 +6,20 @@
 package io.github.ilkgunel.reversingevenwords;
 
 /**
-*
-* @author İlkay Günel
-*/
+ *
+ * @author İlkay Günel
+ */
 
 public class MainClass {
-    public static void main(String[] args) {
-        ReadingFromFile readingFromFile = new ReadingFromFile();
-        WriteToFile writeToFile = new WriteToFile();
-        
-        try {           
-            writeToFile.wirteContent(readingFromFile.readFromFile("words.txt"));
-        } catch (Exception e) {
-            System.out.println("Error:"+e);
-        }
-        
-    }
+	public static void main(final String[] args) {
+		final ReadingFromFile readingFromFile = new ReadingFromFile();
+		final WriteToFile writeToFile = new WriteToFile();
+
+		try {
+			writeToFile.wirteContent(readingFromFile.readFromFile("words.txt"));
+		} catch (final Exception e) {
+			System.out.println("Error:" + e);
+		}
+
+	}
 }

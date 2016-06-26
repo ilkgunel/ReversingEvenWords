@@ -11,39 +11,38 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-
 /**
  *
  * @author İlkay Günel
  */
 public class WriteToFile {
-    
-    public boolean wirteContent(String [] array){
-        Writer writer = null;
-        boolean returnedValue = false;
-        
-        try {
-            writer = new BufferedWriter(new OutputStreamWriter(
-                  new FileOutputStream("reversedWords.txt"), "utf-8"));
-            for(String s:array) {
-                writer.write(s);
-            }
-            returnedValue = true;
-        } 
-        
-        catch (IOException ex) {
-            System.err.println("An Error Occured! Error is:"+ex);
-            returnedValue = false;
-        } 
-        
-        finally {
-           try {
-        	   writer.close();
-           } 
-           catch (Exception ex) {
-        	   System.err.println("writer object couldn't close!");
-           }
-        }
-        return returnedValue;
-    }
+
+	public boolean wirteContent(final String[] array) {
+		Writer writer = null;
+		boolean returnedValue = false;
+
+		try {
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("reversedWords.txt"), "utf-8"));
+			for (final String s : array) {
+				writer.write(s);
+			}
+			returnedValue = true;
+		}
+
+		catch (final IOException ex) {
+			System.err.println("An Error Occured! Error is:" + ex);
+			returnedValue = false;
+		}
+
+		finally {
+			try {
+				writer.close();
+			}
+
+			catch (final Exception ex) {
+				System.err.println("writer object couldn't close!");
+			}
+		}
+		return returnedValue;
+	}
 }
