@@ -14,23 +14,36 @@ import java.io.Writer;
 
 /**
  *
- * @author 010533
+ * @author İlkay Günel
  */
 public class WriteToFile {
     
-    public void wirteContent(String [] array){
+    public boolean wirteContent(String [] array){
         Writer writer = null;
-
+        boolean returnedValue = false;
+        
         try {
             writer = new BufferedWriter(new OutputStreamWriter(
                   new FileOutputStream("reversedWords.txt"), "utf-8"));
             for(String s:array) {
                 writer.write(s);
             }
-        } catch (IOException ex) {
+            returnedValue = true;
+        } 
+        
+        catch (IOException ex) {
             System.err.println("An Error Occured! Error is:"+ex);
-        } finally {
-           try {writer.close();} catch (Exception ex) {/*ignore*/}
+            returnedValue = false;
+        } 
+        
+        finally {
+           try {
+        	   writer.close();
+           } 
+           catch (Exception ex) {
+        	   System.err.println("writer object couldn't close!");
+           }
         }
+        return returnedValue;
     }
 }
